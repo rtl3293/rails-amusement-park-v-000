@@ -1,0 +1,26 @@
+<div class="container"  role="main">
+      <p id="notice"></p>
+
+<div class="center">
+  <div class="pic">
+    <img src="http://www.allthingsclipart.com/05/amusement.park.05.jpg" height="250">
+  </div>
+
+  <div class="info">
+    <p><strong>Name:</strong> <%= @attraction.name %></p>
+    <p><strong>Total Number of Users:</strong> <%= @attraction.users.count %></p>
+    <p><strong>Ticket Requirement:</strong> <%= @attraction.tickets %></p>
+    <p><strong>Height Requirement:</strong> <%= @attraction.min_height %></p>
+    <p><strong>Nausea Rating:</strong> <%= @attraction.nausea_rating %></p>
+    <p><strong>Happiness Rating:</strong> <%= @attraction.happiness_rating %></p>
+      <form action="<%= rides_path %>" method="post">
+        <input name="authenticity_token" type="hidden" value="jCcJac9PgoB0ozyXPwnlfQUB5Cko/q5XOSFQHlUmqIk=" />
+        <input name="ride[user_id]" type="hidden" value="<%= current_user.id %>" />
+        <input name="ride[attraction_id]" type="hidden" value="<%= @attraction.id %>" />
+        <input type="submit" value="Go on this ride">
+      </form>
+    <a href="/attractions">Back</a></p>
+  </div>
+</div>
+
+    </div>

@@ -22,11 +22,6 @@ class SessionsController < ApplicationController
 
   private
 
-  def logged_in_redirect
-    binding.pry
-    redirect_to user_path(current_user) if logged_in?
-  end
-
   def user_params
     params.require(:user)
   end

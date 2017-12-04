@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :current_user, only: [:show, :edit, :update]
+  before_action :logged_in_redirect, only: [:new]
 
   def new
     @user = User.new
@@ -9,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      binding.pry
+      # binding.pry
       redirect_to user_path(@user)
     else
       render 'users/new.html.erb'
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    binding.pry
+    redirect_to root_path if !logged_in?
   end
 
 

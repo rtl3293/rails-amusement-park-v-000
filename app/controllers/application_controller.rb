@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
   def logged_in?
     session.include? :user_id
   end
+
+  def logged_in_redirect
+    redirect_to user_path(current_user) if logged_in?
+  end
 end

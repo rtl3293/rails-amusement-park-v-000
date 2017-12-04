@@ -2,6 +2,7 @@ module LoginHelper
 
   def visit_signup
     visit '/'
+    # binding.pry
     click_link('Sign Up')
   end
 

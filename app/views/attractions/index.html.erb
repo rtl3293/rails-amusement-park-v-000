@@ -1,0 +1,15 @@
+<h1>Rides</h1>
+<table>
+  <tr>
+    <th><strong>Name</th>
+    <th><strong>Tickets</th>
+    <th><strong>Details</th>
+  </tr>
+  <% @attractions.each do |attraction| %>
+    <tr>
+      <td>attraction.name</td>
+      <td>attraction.tickets</td>
+      <td><%= link_to "Go on #{attraction.name}", attraction_path(attraction) %></td>
+    </tr>
+  <% end %>
+</table>

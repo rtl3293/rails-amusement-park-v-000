@@ -20,11 +20,12 @@
             <span class="icon-bar"></span>
           </button>
         <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
-        <a class="navbar-brand" href="<%= new_user_url %>"/>Sign Up</a>
-        <a class="navbar-brand" href="<%= login_url %>"/>Sign In</a>
+        <% if !logged_in? %>
+          <a class="navbar-brand" id="Sign Up" href="<%= new_user_url %>"/>Sign Up</a>
+          <a class="navbar-brand" id="Sign In" href="<%= login_url %>"/>Sign In</a>
+        <% end %>
         <% if logged_in? %>
-          <a class="navbar-brand" href="<%=  %>"/>Sign Out</a>
-          <%= link_to "Sign Out", session_path(current_user), class: "navbar-brand", method: :delete %>
+          <%= link_to "Log Out", session_path(current_user), class: "navbar-brand", method: :delete %>
         <% end %>
         </div>
         <div class="navbar-collapse collapse">
