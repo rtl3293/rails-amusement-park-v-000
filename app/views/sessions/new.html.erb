@@ -1,0 +1,5 @@
+<h1>Sign In</h1>
+<%= form_tag sessions_path, method: "post" do %>
+  <%= render 'users/form' %>
+  <%= submit_tag "Sign In" %>
+<% end %>
